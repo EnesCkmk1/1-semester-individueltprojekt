@@ -1,0 +1,422 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --farve-flade: #fffcf8;
+  --farve-tekst: #1c2b28;
+  --farve-daempet: #3a4a45;
+  --farve-accent: #1e6b56;
+  --farve-accent-moerk: #14483b;
+  --farve-kant: #6a7d76;
+  --farve-kort: #ffffff;
+  --farve-kald: #eef5f1;
+  --farve-sidefod: #f3f1ec;
+  --font-tekst: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-overskrift: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --radius: 0.75rem;
+  --header-hoejde: 5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--farve-flade);
+  color: var(--farve-tekst);
+  font-family: var(--font-tekst);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2 {
+  font-family: var(--font-overskrift);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+p {
+  max-width: 65ch;
+}
+
+a {
+  color: var(--farve-accent-moerk);
+}
+
+a:hover {
+  color: var(--farve-accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--farve-accent-moerk);
+  outline-offset: 3px;
+}
+
+.hop-over {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  transform: translateY(-200%);
+  background: var(--farve-accent-moerk);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  z-index: 10;
+  text-decoration: none;
+}
+
+.hop-over:focus {
+  transform: none;
+}
+
+.sidehoved,
+.hero,
+.behov,
+.skridt,
+.sidefod {
+  padding-inline: 1.25rem;
+}
+
+.sidehoved {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--farve-kant);
+}
+
+.logo {
+  color: var(--farve-tekst);
+  font-family: var(--font-overskrift);
+  font-size: 1.35rem;
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: var(--farve-accent-moerk);
+}
+
+.navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--farve-tekst);
+  text-decoration: none;
+}
+
+.navigation a:hover,
+.navigation a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.kontakt-link {
+  padding-inline: 0.85rem;
+  border: 1px solid var(--farve-kant);
+  border-radius: 999px;
+}
+
+.hero {
+  display: grid;
+  gap: 2rem;
+  padding-block: 2.5rem 2rem;
+  align-items: center;
+}
+
+.hero-tekst h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2rem;
+}
+
+.hero-tekst p {
+  margin: 0 0 1.5rem;
+  color: var(--farve-daempet);
+}
+
+.knap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--farve-accent-moerk);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 700;
+}
+
+.knap:hover {
+  background: var(--farve-accent);
+  color: #fff;
+}
+
+.hero-billede {
+  margin: 0;
+  background: #e7f1eb;
+  border: 1px solid var(--farve-kant);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.hero-billede img {
+  width: 100%;
+  aspect-ratio: 800 / 380;
+  object-fit: cover;
+}
+
+.behov {
+  padding-block: 2.5rem;
+  border-top: 1px solid var(--farve-kant);
+  scroll-margin-top: 1rem;
+}
+
+.behov h2,
+.skridt h2 {
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.behov-liste {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kort {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 9rem;
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--farve-kant);
+  border-radius: var(--radius);
+  background: var(--farve-kort);
+  color: var(--farve-tekst);
+  text-align: center;
+  text-decoration: none;
+}
+
+.kort img {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.kort:hover,
+.kort:focus-visible {
+  border-color: var(--farve-accent-moerk);
+  background: var(--farve-kald);
+  color: var(--farve-tekst);
+}
+
+.kort:hover span,
+.kort:focus-visible span {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.skridt {
+  padding-block: 2.5rem 3rem;
+  border-top: 1px solid var(--farve-kant);
+}
+
+.skridt-boks {
+  padding: 1.5rem;
+  background: var(--farve-kald);
+  border-radius: var(--radius);
+}
+
+.skridt-boks p,
+.akut {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.skridt-boks p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.akut {
+  margin-top: 1.25rem;
+  color: var(--farve-daempet);
+}
+
+.akut a,
+.sidefod a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.sidefod {
+  background: var(--farve-sidefod);
+  border-top: 1px solid var(--farve-kant);
+  padding-block: 2rem 1.5rem;
+}
+
+.sidefod-indhold {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.sidefod h2 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-tekst);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.sidefod p,
+.sidefod ul {
+  margin: 0;
+}
+
+.sidefod ul {
+  padding: 0;
+  list-style: none;
+}
+
+.sidefod li + li {
+  margin-top: 0.35rem;
+}
+
+.sidefod a {
+  color: var(--farve-tekst);
+}
+
+/*
+  Mobile first.
+  Brudpunkterne er sat efter indholdet, ikke efter en bestemt telefon.
+  em følger brugerens standardskriftstørrelse:
+  48em er ca. 768px, 64em er ca. 1024px.
+*/
+
+@media (min-width: 48em) {
+  .sidehoved,
+  .hero,
+  .behov,
+  .skridt,
+  .sidefod {
+    padding-inline: 2rem;
+  }
+
+  .behov-liste {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .sidefod-indhold {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .sidehoved,
+  .hero,
+  .behov,
+  .skridt,
+  .sidefod {
+    padding-inline: 4rem;
+  }
+
+  .sidehoved {
+    height: var(--header-hoejde);
+    padding-block: 0;
+  }
+
+  .hero {
+    grid-template-columns: 1fr 1.4fr;
+    gap: 3rem;
+    align-items: stretch;
+    min-height: calc(100vh - var(--header-hoejde));
+    padding-block: 3rem;
+  }
+
+  .hero-tekst {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-tekst h1 {
+    font-size: 2.5rem;
+  }
+
+  .behov h2,
+  .skridt h2 {
+    font-size: 1.85rem;
+  }
+
+  .knap {
+    display: inline-flex;
+    width: auto;
+    min-width: 16rem;
+  }
+
+  .hero-billede,
+  .hero-billede img {
+    height: 100%;
+    min-height: 20rem;
+  }
+
+  .hero-billede img {
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+
+  .behov,
+  .skridt {
+    padding-block: 4rem;
+  }
+
+  .kort {
+    min-height: 12rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
