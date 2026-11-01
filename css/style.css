@@ -306,7 +306,7 @@ a:hover {
   list-style: none;
 }
 
-.sidefod li + li {
+.sidefod li+li {
   margin-top: 0.35rem;
 }
 
@@ -322,6 +322,7 @@ a:hover {
 */
 
 @media (min-width: 48em) {
+
   .sidehoved,
   .hero,
   .behov,
@@ -342,6 +343,7 @@ a:hover {
 }
 
 @media (min-width: 64em) {
+
   .sidehoved,
   .hero,
   .behov,
