@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Se kontaktformularen og find telefonnumre til Livslinien, Børnetelefonen og Mindhelper.">
+  <title>Kontakt | Ro i hovedet</title>
+  <link rel="icon" href="../billeder/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <a class="hop-over" href="#indhold">Spring til indhold</a>
+
+  <header class="sidehoved">
+    <a class="logo" href="index.html">Ro i hovedet</a>
+    <nav class="navigation" aria-label="Hovednavigation">
+      <ul>
+        <li><a href="index.html">Forside</a></li>
+        <li><a href="viden.html">Viden</a></li>
+        <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="indhold">
+    <section class="kontakt" aria-labelledby="kontakt-side-titel">
+      <h1 id="kontakt-side-titel">Få hjælp og støtte</h1>
+      <p class="kontakt-lede">Telefonnumre og steder, hvor du kan få støtte.</p>
+
+      <div class="kontakt-layout">
+        <form class="kontakt-formular" aria-labelledby="formular-titel">
+          <h2 id="formular-titel">Kontaktformular</h2>
+
+          <div class="felt">
+            <label for="navn">Navn</label>
+            <input id="navn" name="navn" type="text" autocomplete="name" placeholder="Indtast dit fulde navn">
+          </div>
+
+          <div class="felt">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="Indtast din e-mailadresse">
+          </div>
+
+          <div class="felt">
+            <label for="telefon">Telefon <span class="valgfri">(valgfri)</span></label>
+            <input id="telefon" name="telefon" type="tel" autocomplete="tel" placeholder="Indtast dit telefonnummer">
+          </div>
+
+          <div class="felt">
+            <label for="besked">Besked</label>
+            <textarea id="besked" name="besked" rows="5" placeholder="Skriv din besked her..."></textarea>
+          </div>
+
+          <button class="knap" type="button">Send besked</button>
+        </form>
+
+        <section class="kontakt-oplysninger" aria-labelledby="oplysninger-titel">
+          <h2 id="oplysninger-titel">Kontaktoplysninger</h2>
+          <ul class="oplysning-liste">
+            <li>
+              <span class="oplysning-ikon">
+                <img src="../billeder/ikon-telefon.svg" alt="" width="24" height="24">
+              </span>
+              <div>
+                <h3>Livslinien</h3>
+                <p><a href="tel:+4570201201">70 201 201</a></p>
+                <p>Åben hele døgnet</p>
+              </div>
+            </li>
+            <li>
+              <span class="oplysning-ikon">
+                <img src="../billeder/ikon-telefon.svg" alt="" width="24" height="24">
+              </span>
+              <div>
+                <h3>Børnetelefonen</h3>
+                <p><a href="tel:116111">116 111</a></p>
+                <p>Rådgivning til børn og unge</p>
+              </div>
+            </li>
+            <li>
+              <span class="oplysning-ikon">
+                <img src="../billeder/ikon-brev.svg" alt="" width="24" height="24">
+              </span>
+              <div>
+                <h3>Mindhelper</h3>
+                <p><a href="https://mindhelper.dk/">mindhelper.dk</a></p>
+                <p>Viden og råd skrevet til unge</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="kort-omraade">
+            <img src="../billeder/kort.svg" alt="" width="640" height="280">
+            <p>Ingen besøgsadresse. Ring, hvis du vil tale med nogen.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sidefod">
+    <div class="sidefod-indhold">
+      <div class="sidefod-brand">
+        <a class="sidefod-logo" href="index.html">Ro i hovedet</a>
+        <p>Viden og små skridt, så du kan passe på din mentale trivsel.</p>
+      </div>
+      <section aria-labelledby="henvisninger-titel">
+        <h2 id="henvisninger-titel">Henvisninger</h2>
+        <ul>
+          <li><a href="https://www.livslinien.dk/">Livslinien</a>, <a href="tel:+4570201201">70 201 201</a></li>
+          <li><a href="https://bornetelefonen.dk/">Børnetelefonen</a>, <a href="tel:116111">116 111</a></li>
+          <li><a href="https://mindhelper.dk/">Mindhelper</a></li>
+        </ul>
+      </section>
+      <section aria-labelledby="kontakt-titel">
+        <h2 id="kontakt-titel">Kontakt</h2>
+        <p><a href="kontakt.html">Skriv til os</a></p>
+      </section>
+      <section aria-labelledby="kilder-titel">
+        <h2 id="kilder-titel">Kilder</h2>
+        <ul>
+          <li><a href="https://mindhelper.dk/">Mindhelper</a></li>
+          <li><a href="https://www.sst.dk/">Sundhedsstyrelsen</a></li>
+          <li><a href="https://www.psykiatrifonden.dk/">Psykiatrifonden</a></li>
+        </ul>
+      </section>
+    </div>
+  </footer>
+</body>
+
+</html>

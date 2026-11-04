@@ -14,6 +14,7 @@
   --farve-kort: #ffffff;
   --farve-kald: #eef5f1;
   --farve-sidefod: #f3f1ec;
+  --farve-linje: #d5dfd9;
   --font-tekst: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-overskrift: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
   --radius: 0.75rem;
@@ -40,7 +41,8 @@ img {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: var(--font-overskrift);
   font-weight: 400;
   line-height: 1.2;
@@ -56,6 +58,10 @@ a {
 
 a:hover {
   color: var(--farve-accent);
+}
+
+a[href^="tel:"] {
+  white-space: nowrap;
 }
 
 :focus-visible {
@@ -83,6 +89,11 @@ a:hover {
 .hero,
 .behov,
 .skridt,
+.intro,
+.om-angst,
+.strategier,
+.hjaelp,
+.kontakt,
 .sidefod {
   padding-inline: 1.25rem;
 }
@@ -92,50 +103,59 @@ a:hover {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem 1.5rem;
-  padding-block: 1rem;
-  border-bottom: 1px solid var(--farve-kant);
+  gap: 0.75rem 1.5rem;
+  padding-block: 0.85rem;
+  background: var(--farve-kort);
+  border-bottom: 1px solid var(--farve-linje);
 }
 
 .logo {
   color: var(--farve-tekst);
   font-family: var(--font-overskrift);
   font-size: 1.35rem;
+  line-height: 1.2;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .logo:hover {
   color: var(--farve-accent-moerk);
 }
 
+.navigation {
+  flex: 1 1 100%;
+}
+
 .navigation ul {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .navigation a {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   min-height: 2.75rem;
+  padding-inline: 0.75rem;
+  border-radius: 999px;
   color: var(--farve-tekst);
+  font-size: 1rem;
   text-decoration: none;
 }
 
-.navigation a:hover,
-.navigation a[aria-current="page"] {
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
+.navigation a:hover {
+  background: var(--farve-kald);
+  color: var(--farve-tekst);
 }
 
-.kontakt-link {
-  padding-inline: 0.85rem;
-  border: 1px solid var(--farve-kant);
-  border-radius: 999px;
+.navigation a[aria-current="page"] {
+  background: var(--farve-kald);
+  color: var(--farve-accent-moerk);
+  font-weight: 700;
 }
 
 .hero {
@@ -278,9 +298,10 @@ a:hover {
 }
 
 .sidefod {
-  background: var(--farve-sidefod);
-  border-top: 1px solid var(--farve-kant);
-  padding-block: 2rem 1.5rem;
+  background: var(--farve-accent-moerk);
+  color: #fff;
+  border-top: 4px solid var(--farve-accent);
+  padding-block: 2.5rem 2rem;
 }
 
 .sidefod-indhold {
@@ -288,12 +309,29 @@ a:hover {
   gap: 1.75rem;
 }
 
+.sidefod-brand p {
+  margin: 0;
+  color: #e7f1eb;
+}
+
+.sidefod a.sidefod-logo {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  color: #fff;
+  font-family: var(--font-overskrift);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.sidefod a.sidefod-logo:hover {
+  color: var(--farve-kald);
+}
+
 .sidefod h2 {
-  margin: 0 0 0.5rem;
-  font-family: var(--font-tekst);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.4;
+  margin: 0 0 0.75rem;
+  color: #fff;
+  font-size: 1.25rem;
 }
 
 .sidefod p,
@@ -307,11 +345,317 @@ a:hover {
 }
 
 .sidefod li+li {
-  margin-top: 0.35rem;
+  margin-top: 0.55rem;
+}
+
+.sidefod a:hover {
+  color: var(--farve-kald);
+}
+
+.sidefod a:focus-visible {
+  outline-color: #fff;
+}
+
+.hero,
+.behov,
+.skridt,
+.intro,
+.om-angst,
+.strategier,
+.hjaelp {
+  width: min(100%, calc(46rem + 2.5rem));
+  margin-inline: auto;
+}
+
+.intro {
+  padding-block: 2.5rem 1.5rem;
+  scroll-margin-top: 1rem;
+}
+
+.intro-boks {
+  padding: 1.25rem;
+  background: var(--farve-sidefod);
+  border-radius: var(--radius);
+}
+
+.intro-boks h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+}
+
+.intro-boks p {
+  margin: 0 0 1.25rem;
+  color: var(--farve-daempet);
+}
+
+.intro-billede {
+  margin: 0;
+  background: var(--farve-kort);
+  border: 1px solid var(--farve-kant);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.intro-billede img {
+  width: 100%;
+  aspect-ratio: 1000 / 240;
+  object-fit: cover;
+}
+
+.om-angst,
+.strategier {
+  padding-block: 1.5rem;
+}
+
+.om-angst h2,
+.strategier h2,
+.hjaelp h2 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+}
+
+.strategi-boks,
+.hjaelp-boks {
+  padding: 1.25rem;
+  background: var(--farve-kort);
+  border: 1px solid var(--farve-kant);
+  border-radius: var(--radius);
+}
+
+.strategi-liste,
+.hjaelp-liste {
+  display: grid;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.strategi-liste li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.strategi-ikon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: var(--farve-kald);
+  border-radius: 0.4rem;
+}
+
+.strategi-ikon img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.strategi-tekst h3,
+.hjaelp-liste h3 {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-tekst);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.strategi-tekst p,
+.hjaelp-liste p,
+.hjaelp-akut {
+  margin: 0;
+}
+
+.hjaelp {
+  padding-block: 1.5rem 3rem;
+  scroll-margin-top: 1rem;
+}
+
+.hjaelp-indledning {
+  margin-top: 0;
+  color: var(--farve-daempet);
+}
+
+.hjaelp-liste a,
+.hjaelp-akut a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.hjaelp-akut {
+  margin-top: 1.5rem;
+  color: var(--farve-daempet);
+}
+
+.kontakt {
+  padding-block: 2.5rem 3rem;
+}
+
+.kontakt h1,
+.kontakt-lede,
+.kontakt-layout {
+  width: min(100%, 46rem);
+  margin-inline: auto;
+}
+
+.kontakt h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.kontakt-lede {
+  margin-bottom: 1.5rem;
+  color: var(--farve-daempet);
+  text-align: center;
+}
+
+.kontakt-layout {
+  display: grid;
+  border: 1px solid var(--farve-kant);
+  border-radius: var(--radius);
+  background: var(--farve-kort);
+}
+
+.kontakt-formular,
+.kontakt-oplysninger {
+  padding: 1.25rem;
+}
+
+.kontakt-formular h2,
+.kontakt-oplysninger h2 {
+  margin: 0 0 1.25rem;
+  font-size: 1.35rem;
+}
+
+.felt + .felt {
+  margin-top: 1.15rem;
+}
+
+.felt label {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.valgfri {
+  font-weight: 400;
+  color: var(--farve-daempet);
+}
+
+.felt input,
+.felt textarea {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--farve-kant);
+  border-radius: 0.5rem;
+  background: var(--farve-kort);
+  color: var(--farve-tekst);
+  font: inherit;
+}
+
+.felt input {
+  min-height: 2.75rem;
+}
+
+.felt textarea {
+  min-height: 6.5rem;
+  resize: vertical;
+}
+
+.felt input::placeholder,
+.felt textarea::placeholder {
+  color: var(--farve-daempet);
+  opacity: 1;
+}
+
+.kontakt-formular .knap {
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
+.kontakt-oplysninger {
+  border-top: 1px solid var(--farve-kant);
+}
+
+.oplysning-liste {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oplysning-liste li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding-block: 1rem;
+  border-top: 1px solid var(--farve-kant);
+}
+
+.oplysning-liste li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.oplysning-ikon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: var(--farve-sidefod);
+  border-radius: 0.4rem;
+}
+
+.oplysning-ikon img {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.oplysning-liste h3 {
+  margin: 0 0 0.15rem;
+  font-family: var(--font-tekst);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.oplysning-liste p,
+.kort-omraade p {
+  margin: 0;
+}
+
+.oplysning-liste a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.kort-omraade {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  background: var(--farve-sidefod);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.kort-omraade img {
+  width: 100%;
+  height: 7rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.kort-omraade p {
+  margin: 0.85rem auto 0;
+  color: var(--farve-daempet);
 }
 
 .sidefod a {
-  color: var(--farve-tekst);
+  color: #fff;
 }
 
 /*
@@ -327,8 +671,46 @@ a:hover {
   .hero,
   .behov,
   .skridt,
+  .intro,
+  .om-angst,
+  .strategier,
+  .hjaelp,
+  .kontakt,
   .sidefod {
     padding-inline: 2rem;
+  }
+
+  .sidehoved,
+  .sidefod {
+    padding-inline: max(2rem, calc((100% - 46rem) / 2));
+  }
+
+  .sidehoved {
+    flex-wrap: nowrap;
+  }
+
+  .navigation {
+    flex: 0 1 auto;
+  }
+
+  .navigation ul {
+    display: flex;
+    gap: 0.35rem;
+  }
+
+  .navigation a {
+    width: auto;
+    padding-inline: 0.95rem;
+  }
+
+  .hero,
+  .behov,
+  .skridt,
+  .intro,
+  .om-angst,
+  .strategier,
+  .hjaelp {
+    width: min(100%, calc(46rem + 4rem));
   }
 
   .behov-liste {
@@ -340,6 +722,10 @@ a:hover {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
   }
+
+  .sidefod-brand {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (min-width: 64em) {
@@ -348,20 +734,39 @@ a:hover {
   .hero,
   .behov,
   .skridt,
+  .intro,
+  .om-angst,
+  .strategier,
+  .hjaelp,
+  .kontakt,
   .sidefod {
     padding-inline: 4rem;
   }
 
   .sidehoved {
-    height: var(--header-hoejde);
+    min-height: var(--header-hoejde);
     padding-block: 0;
+    padding-inline: max(4rem, calc((100% - 68rem) / 2));
+  }
+
+  .sidefod {
+    padding-inline: max(4rem, calc((100% - 68rem) / 2));
+  }
+
+  .sidefod-indhold {
+    grid-template-columns: 1.4fr 1fr 0.8fr 1fr;
+    align-items: start;
+  }
+
+  .sidefod-brand {
+    grid-column: auto;
+    padding-right: 1.5rem;
   }
 
   .hero {
     grid-template-columns: 1fr 1.4fr;
     gap: 3rem;
-    align-items: stretch;
-    min-height: calc(100vh - var(--header-hoejde));
+    align-items: center;
     padding-block: 3rem;
   }
 
@@ -376,8 +781,37 @@ a:hover {
   }
 
   .behov h2,
-  .skridt h2 {
+  .skridt h2,
+  .om-angst h2,
+  .strategier h2,
+  .hjaelp h2 {
     font-size: 1.85rem;
+  }
+
+  .intro {
+    padding-block: 3rem 2rem;
+  }
+
+  .intro-boks {
+    padding: 1.75rem;
+  }
+
+  .intro-boks h1 {
+    font-size: 2.5rem;
+  }
+
+  .om-angst,
+  .strategier {
+    padding-block: 2rem;
+  }
+
+  .hjaelp {
+    padding-block: 2rem 4rem;
+  }
+
+  .strategi-boks,
+  .hjaelp-boks {
+    padding: 1.75rem;
   }
 
   .knap {
@@ -386,15 +820,47 @@ a:hover {
     min-width: 16rem;
   }
 
-  .hero-billede,
-  .hero-billede img {
-    height: 100%;
-    min-height: 20rem;
+  .kontakt {
+    padding-block: 3rem 4rem;
   }
 
-  .hero-billede img {
-    aspect-ratio: auto;
-    object-fit: cover;
+  .hero,
+  .behov,
+  .skridt,
+  .intro,
+  .om-angst,
+  .strategier,
+  .hjaelp {
+    width: min(100%, calc(68rem + 8rem));
+  }
+
+  .kontakt h1,
+  .kontakt-lede,
+  .kontakt-layout {
+    width: min(100%, 68rem);
+  }
+
+  .kontakt h1 {
+    font-size: 2.5rem;
+  }
+
+  .kontakt-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .kontakt-formular,
+  .kontakt-oplysninger {
+    padding: 1.5rem 1.75rem;
+  }
+
+  .kontakt-oplysninger {
+    border-top: 0;
+    border-left: 1px solid var(--farve-kant);
+  }
+
+  .kontakt-formular .knap {
+    width: 100%;
+    min-width: 0;
   }
 
   .behov,
