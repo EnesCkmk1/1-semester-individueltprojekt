@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../skrift/nunito-sans-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../skrift/nunito-sans-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 *,
 *::before,
 *::after {
@@ -15,9 +33,9 @@
   --farve-kald: #eef5f1;
   --farve-sidefod: #f3f1ec;
   --farve-linje: #d5dfd9;
-  --font-tekst: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  --font-overskrift: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
-  --radius: 0.75rem;
+  --font-tekst: "Nunito Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --radius: 1.35rem;
+  --skygge: 0 0.85rem 2rem rgba(28, 43, 40, 0.07);
   --header-hoejde: 5rem;
 }
 
@@ -42,10 +60,11 @@ img {
 
 h1,
 h2,
-h3 {
-  font-family: var(--font-overskrift);
-  font-weight: 400;
-  line-height: 1.2;
+h3,
+h4 {
+  font-family: var(--font-tekst);
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 p {
@@ -111,7 +130,8 @@ a[href^="tel:"] {
 
 .logo {
   color: var(--farve-tekst);
-  font-family: var(--font-overskrift);
+  font-family: var(--font-tekst);
+  font-weight: 700;
   font-size: 1.35rem;
   line-height: 1.2;
   text-decoration: none;
@@ -185,7 +205,7 @@ a[href^="tel:"] {
   background: var(--farve-accent-moerk);
   color: #fff;
   text-decoration: none;
-  border-radius: 0.5rem;
+  border-radius: 999px;
   font-weight: 700;
 }
 
@@ -196,21 +216,20 @@ a[href^="tel:"] {
 
 .hero-billede {
   margin: 0;
-  background: #e7f1eb;
-  border: 1px solid var(--farve-kant);
-  border-radius: var(--radius);
+  border-radius: 1.75rem;
   overflow: hidden;
+  box-shadow: var(--skygge);
 }
 
 .hero-billede img {
   width: 100%;
-  aspect-ratio: 800 / 380;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
+  object-position: center 40%;
 }
 
 .behov {
   padding-block: 2.5rem;
-  border-top: 1px solid var(--farve-kant);
   scroll-margin-top: 1rem;
 }
 
@@ -238,9 +257,10 @@ a[href^="tel:"] {
   gap: 0.75rem;
   min-height: 9rem;
   padding: 1.5rem 1rem;
-  border: 1px solid var(--farve-kant);
-  border-radius: var(--radius);
+  border: 0;
+  border-radius: 1.5rem;
   background: var(--farve-kort);
+  box-shadow: var(--skygge);
   color: var(--farve-tekst);
   text-align: center;
   text-decoration: none;
@@ -253,9 +273,9 @@ a[href^="tel:"] {
 
 .kort:hover,
 .kort:focus-visible {
-  border-color: var(--farve-accent-moerk);
   background: var(--farve-kald);
   color: var(--farve-tekst);
+  transform: translateY(-0.15rem);
 }
 
 .kort:hover span,
@@ -265,25 +285,40 @@ a[href^="tel:"] {
 }
 
 .skridt {
-  padding-block: 2.5rem 3rem;
-  border-top: 1px solid var(--farve-kant);
+  padding-block: 1rem 3rem;
 }
 
 .skridt-boks {
-  padding: 1.5rem;
-  background: var(--farve-kald);
-  border-radius: var(--radius);
-}
-
-.skridt-boks p,
-.akut {
-  margin-inline: auto;
-  text-align: center;
+  display: grid;
+  gap: 1.25rem;
+  align-items: center;
 }
 
 .skridt-boks p {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
+}
+
+.side-billede,
+.mellem-billede {
+  margin: 0;
+}
+
+.side-billede img,
+.mellem-billede img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  box-shadow: var(--skygge);
+}
+
+.mellem-billede {
+  margin-top: 1.5rem;
+}
+
+.akut {
+  margin-inline: auto;
+  text-align: center;
 }
 
 .akut {
@@ -318,7 +353,8 @@ a[href^="tel:"] {
   display: inline-block;
   margin-bottom: 0.35rem;
   color: #fff;
-  font-family: var(--font-overskrift);
+  font-family: var(--font-tekst);
+  font-weight: 700;
   font-size: 1.5rem;
   line-height: 1.2;
   text-decoration: none;
@@ -373,9 +409,7 @@ a[href^="tel:"] {
 }
 
 .intro-boks {
-  padding: 1.25rem;
-  background: var(--farve-sidefod);
-  border-radius: var(--radius);
+  padding: 0;
 }
 
 .intro-boks h1 {
@@ -390,21 +424,57 @@ a[href^="tel:"] {
 
 .intro-billede {
   margin: 0;
-  background: var(--farve-kort);
-  border: 1px solid var(--farve-kant);
-  border-radius: var(--radius);
+  border-radius: 1.75rem;
   overflow: hidden;
+  box-shadow: var(--skygge);
 }
 
 .intro-billede img {
   width: 100%;
-  aspect-ratio: 1000 / 240;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: center 18%;
 }
 
 .om-angst,
 .strategier {
   padding-block: 1.5rem;
+  scroll-margin-top: 1rem;
+}
+
+.emne-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.emne-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: 999px;
+  background: var(--farve-kald);
+  color: var(--farve-tekst);
+  text-decoration: none;
+}
+
+.emne-nav a:hover {
+  background: #e4f0ea;
+  color: var(--farve-accent-moerk);
+}
+
+.strategi-tekst a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.strategi-boks h3 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
 }
 
 .om-angst h2,
@@ -416,10 +486,9 @@ a[href^="tel:"] {
 
 .strategi-boks,
 .hjaelp-boks {
-  padding: 1.25rem;
-  background: var(--farve-kort);
-  border: 1px solid var(--farve-kant);
-  border-radius: var(--radius);
+  padding: 1.35rem 1.25rem;
+  background: var(--farve-kald);
+  border-radius: 1.5rem;
 }
 
 .strategi-liste,
@@ -443,8 +512,8 @@ a[href^="tel:"] {
   flex-shrink: 0;
   width: 2.75rem;
   height: 2.75rem;
-  background: var(--farve-kald);
-  border-radius: 0.4rem;
+  background: #fff;
+  border-radius: 50%;
 }
 
 .strategi-ikon img {
@@ -452,7 +521,7 @@ a[href^="tel:"] {
   height: 1.5rem;
 }
 
-.strategi-tekst h3,
+.strategi-tekst h4,
 .hjaelp-liste h3 {
   margin: 0 0 0.25rem;
   font-family: var(--font-tekst);
@@ -514,14 +583,15 @@ a[href^="tel:"] {
 
 .kontakt-layout {
   display: grid;
-  border: 1px solid var(--farve-kant);
-  border-radius: var(--radius);
-  background: var(--farve-kort);
+  gap: 1.25rem;
 }
 
 .kontakt-formular,
 .kontakt-oplysninger {
-  padding: 1.25rem;
+  padding: 1.35rem;
+  background: var(--farve-kort);
+  border-radius: 1.5rem;
+  box-shadow: var(--skygge);
 }
 
 .kontakt-formular h2,
@@ -550,7 +620,7 @@ a[href^="tel:"] {
   width: 100%;
   padding: 0.7rem 0.85rem;
   border: 1px solid var(--farve-kant);
-  border-radius: 0.5rem;
+  border-radius: 0.9rem;
   background: var(--farve-kort);
   color: var(--farve-tekst);
   font: inherit;
@@ -576,10 +646,6 @@ a[href^="tel:"] {
   margin-top: 1.25rem;
 }
 
-.kontakt-oplysninger {
-  border-top: 1px solid var(--farve-kant);
-}
-
 .oplysning-liste {
   display: grid;
   gap: 0;
@@ -593,7 +659,7 @@ a[href^="tel:"] {
   align-items: flex-start;
   gap: 0.85rem;
   padding-block: 1rem;
-  border-top: 1px solid var(--farve-kant);
+  border-top: 1px solid var(--farve-linje);
 }
 
 .oplysning-liste li:first-child {
@@ -607,8 +673,8 @@ a[href^="tel:"] {
   flex-shrink: 0;
   width: 2.75rem;
   height: 2.75rem;
-  background: var(--farve-sidefod);
-  border-radius: 0.4rem;
+  background: var(--farve-kald);
+  border-radius: 50%;
 }
 
 .oplysning-ikon img {
@@ -635,18 +701,16 @@ a[href^="tel:"] {
 }
 
 .kort-omraade {
-  margin-top: 1.25rem;
-  padding: 1rem;
-  background: var(--farve-sidefod);
-  border-radius: var(--radius);
+  margin-top: 1.5rem;
   text-align: center;
 }
 
 .kort-omraade img {
   width: 100%;
-  height: 7rem;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 0.5rem;
+  object-position: center 42%;
+  border-radius: 1.15rem;
 }
 
 .kort-omraade p {
@@ -716,6 +780,11 @@ a[href^="tel:"] {
   .behov-liste {
     grid-template-columns: 1fr 1fr;
     gap: 1.25rem;
+  }
+
+  .skridt-boks {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 2rem;
   }
 
   .sidefod-indhold {
@@ -792,10 +861,6 @@ a[href^="tel:"] {
     padding-block: 3rem 2rem;
   }
 
-  .intro-boks {
-    padding: 1.75rem;
-  }
-
   .intro-boks h1 {
     font-size: 2.5rem;
   }
@@ -853,11 +918,6 @@ a[href^="tel:"] {
     padding: 1.5rem 1.75rem;
   }
 
-  .kontakt-oplysninger {
-    border-top: 0;
-    border-left: 1px solid var(--farve-kant);
-  }
-
   .kontakt-formular .knap {
     width: 100%;
     min-width: 0;
@@ -876,6 +936,11 @@ a[href^="tel:"] {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .kort:hover,
+  .kort:focus-visible {
+    transform: none;
   }
 }
 
