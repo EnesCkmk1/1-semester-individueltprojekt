@@ -646,6 +646,11 @@ a[href^="tel:"] {
   margin-top: 1.25rem;
 }
 
+.formular-note {
+  margin: 0.85rem 0 0;
+  color: var(--farve-daempet);
+}
+
 .oplysning-liste {
   display: grid;
   gap: 0;
