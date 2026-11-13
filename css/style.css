@@ -202,11 +202,15 @@ a[href^="tel:"] {
   width: 100%;
   min-height: 3rem;
   padding: 0.75rem 1.25rem;
+  border: 0;
   background: var(--farve-accent-moerk);
   color: #fff;
+  font: inherit;
+  font-weight: 700;
   text-decoration: none;
   border-radius: 999px;
-  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .knap:hover {
@@ -263,18 +267,26 @@ a[href^="tel:"] {
   color: var(--farve-tekst);
   text-align: center;
   text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .kort img {
   width: 1.75rem;
   height: 1.75rem;
+  transition: transform 0.2s ease;
 }
 
 .kort:hover,
 .kort:focus-visible {
   background: var(--farve-kald);
   color: var(--farve-tekst);
-  transform: translateY(-0.15rem);
+  transform: translateY(-0.35rem);
+  box-shadow: 0 1.15rem 2.2rem rgba(28, 43, 40, 0.12);
+}
+
+.kort:hover img,
+.kort:focus-visible img {
+  transform: scale(1.08);
 }
 
 .kort:hover span,
@@ -559,21 +571,19 @@ a[href^="tel:"] {
   padding-block: 2.5rem 3rem;
 }
 
-.kontakt h1,
-.kontakt-lede,
+.kontakt-intro,
 .kontakt-layout {
   width: min(100%, 46rem);
   margin-inline: auto;
 }
 
-.kontakt h1 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+.kontakt-intro h1 {
+  margin: 0 0 0.35rem;
   font-size: 2rem;
 }
 
 .kontakt-lede {
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.75rem;
   color: var(--farve-daempet);
 }
 
@@ -602,7 +612,8 @@ a[href^="tel:"] {
 
 .felt label {
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
+  font-weight: 600;
 }
 
 .valgfri {
@@ -614,12 +625,19 @@ a[href^="tel:"] {
 .felt textarea {
   display: block;
   width: 100%;
-  padding: 0.7rem 0.85rem;
-  border: 1px solid var(--farve-kant);
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--farve-linje);
   border-radius: 0.9rem;
-  background: var(--farve-kort);
+  background: var(--farve-flade);
   color: var(--farve-tekst);
   font: inherit;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.felt input:focus-visible,
+.felt textarea:focus-visible {
+  border-color: var(--farve-accent);
+  background: var(--farve-kort);
 }
 
 .felt input {
@@ -633,7 +651,7 @@ a[href^="tel:"] {
 
 .felt input::placeholder,
 .felt textarea::placeholder {
-  color: var(--farve-daempet);
+  color: var(--farve-kant);
   opacity: 1;
 }
 
@@ -783,9 +801,19 @@ a[href^="tel:"] {
   }
 
   .skridt-boks {
-    grid-template-columns: minmax(0, 1fr) minmax(16rem, 24rem);
+    grid-template-columns: minmax(16rem, 24rem) minmax(0, 1fr);
     gap: 2.5rem;
     align-items: center;
+  }
+
+  .skridt .side-billede {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .skridt-tekst {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .skridt .side-billede img {
@@ -905,13 +933,12 @@ a[href^="tel:"] {
     width: min(100%, calc(68rem + 8rem));
   }
 
-  .kontakt h1,
-  .kontakt-lede,
+  .kontakt-intro,
   .kontakt-layout {
     width: min(100%, 68rem);
   }
 
-  .kontakt h1 {
+  .kontakt-intro h1 {
     font-size: 2.5rem;
   }
 
@@ -944,8 +971,18 @@ a[href^="tel:"] {
     scroll-behavior: auto;
   }
 
+  .kort,
+  .kort img,
+  .knap,
+  .felt input,
+  .felt textarea {
+    transition: none;
+  }
+
   .kort:hover,
-  .kort:focus-visible {
+  .kort:focus-visible,
+  .kort:hover img,
+  .kort:focus-visible img {
     transform: none;
   }
 }
