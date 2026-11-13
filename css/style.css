@@ -237,7 +237,6 @@ a[href^="tel:"] {
 .skridt h2 {
   margin: 0 0 1.5rem;
   font-size: 1.5rem;
-  text-align: center;
 }
 
 .behov-liste {
@@ -314,11 +313,6 @@ a[href^="tel:"] {
 
 .mellem-billede {
   margin-top: 1.5rem;
-}
-
-.akut {
-  margin-inline: auto;
-  text-align: center;
 }
 
 .akut {
@@ -572,13 +566,11 @@ a[href^="tel:"] {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-size: 2rem;
-  text-align: center;
 }
 
 .kontakt-lede {
   margin-bottom: 1.5rem;
   color: var(--farve-daempet);
-  text-align: center;
 }
 
 .kontakt-layout {
@@ -707,7 +699,6 @@ a[href^="tel:"] {
 
 .kort-omraade {
   margin-top: 1.5rem;
-  text-align: center;
 }
 
 .kort-omraade img {
@@ -719,7 +710,7 @@ a[href^="tel:"] {
 }
 
 .kort-omraade p {
-  margin: 0.85rem auto 0;
+  margin: 0.85rem 0 0;
   color: var(--farve-daempet);
 }
 
