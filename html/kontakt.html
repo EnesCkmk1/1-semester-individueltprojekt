@@ -56,8 +56,8 @@
             <textarea id="besked" name="besked" rows="5" placeholder="Skriv din besked her"></textarea>
           </div>
 
-          <button class="knap" type="button">Send besked</button>
-          <p class="formular-note">Beskeden bliver ikke sendt. Det her er kun et eksempel.</p>
+          <button class="knap" type="button" aria-describedby="formular-note">Send besked</button>
+          <p class="formular-note" id="formular-note">Beskeden bliver ikke sendt. Det her er kun et eksempel.</p>
         </form>
 
         <section class="kontakt-oplysninger" aria-labelledby="oplysninger-titel">
@@ -96,10 +96,10 @@
             </li>
           </ul>
 
-          <div class="kort-omraade">
+          <figure class="kort-omraade">
             <img src="../billeder/bykort.jpg" alt="" width="1400" height="875">
-            <p>Ingen besøgsadresse. Ring, hvis du vil tale med nogen.</p>
-          </div>
+            <figcaption>Ingen besøgsadresse. Ring, hvis du vil tale med nogen.</figcaption>
+          </figure>
         </section>
       </div>
     </section>
